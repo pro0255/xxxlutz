@@ -119,7 +119,7 @@ export const timelineEvents: TimelineEvent[] = [
   {
     date: "Duben 2026",
     title: "Poslední pokus",
-    desc: "Píšu technikovi, že navrhované řešení není přijatelné. Chtěl bych doručení, ne jezdit po skladech. Od té doby opět ticho.",
+    desc: "Volám na customer service, že navrhované řešení není přijatelné. Chtěl bych doručení, ne jezdit po skladech. Od té doby opět ticho.",
     type: "problem",
   },
 ];
