@@ -54,8 +54,7 @@ export function Hero() {
           řeší reklamace
         </h1>
         <p className="mx-auto mb-10 max-w-xl text-lg text-zinc-400">
-          Koupil jsem pohovku. Přišla s flekem a bez polštářů. Od té doby běží
-          reklamace, která se zdá být nekonečná.
+          Koupil jsem pohovku. Přišla bez polštářů.
         </p>
         <div className="inline-flex items-center gap-3 rounded-2xl border border-red-500/20 bg-red-500/10 px-8 py-5">
           <Clock className="h-6 w-6 text-red-400" />

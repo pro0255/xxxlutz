@@ -10,11 +10,11 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: "Jak XXXLutz řeší reklamace — Příběh jedné pohovky",
   description:
-    "Koupil jsem pohovku v XXXLutz. Přišla s flekem a bez polštářů. Reklamace trvá přes 100 dní. Toto je dokumentace mé zkušenosti.",
+    "Koupil jsem pohovku v XXXLutz. Přišla bez polštářů. Reklamace trvá přes 100 dní. Toto je dokumentace mé zkušenosti.",
   openGraph: {
     title: "Jak XXXLutz řeší reklamace",
     description:
-      "Příběh reklamace pohovky, která trvá přes 100 dní. Flek, chybějící polštáře a nekonečné čekání.",
+      "Příběh reklamace pohovky, která trvá přes 100 dní. Chybějící polštáře a nekonečné čekání.",
     type: "website",
     locale: "cs_CZ",
   },

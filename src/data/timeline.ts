@@ -24,7 +24,7 @@ export const timelineEvents: TimelineEvent[] = [
   {
     date: "~30. 12. 2025",
     title: "Rozbalení — překvapení",
-    desc: "Chybí 2 polštáře a na pohovce je viditelný flek. Oboje u nového nábytku nepřijatelné.",
+    desc: "Chybí 2 polštáře. U nového nábytku nepřijatelné.",
     type: "problem",
   },
   {
@@ -37,14 +37,14 @@ export const timelineEvents: TimelineEvent[] = [
     date: "5. 1. 2026",
     title: "Odpověď reklamačního oddělení",
     desc: "Po několika kolech emailové komunikace reklamaci konečně přijali.",
-    quote: "Prosím o informaci kde konkrétně jsou reklamované fleky.",
+    quote: "Prosím o informaci kde konkrétně jsou reklamované vady.",
     type: "waiting",
   },
   {
     date: "7. 1. 2026",
     title: "Další požadavek na fotky",
     desc: "Potřebují foto z větší perspektivy, aby mohli určit konkrétní díly.",
-    quote: "Prosím o nafocení fleku z větší perspektivy.",
+    quote: "Prosím o nafocení vady z větší perspektivy.",
     type: "waiting",
   },
   {
