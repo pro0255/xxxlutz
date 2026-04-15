@@ -1,23 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { DEADLINE_DATE } from "@/data/timeline";
-import { AlertCircle, Timer } from "lucide-react";
+import { COMPLAINT_START_DATE, RESOLVED_DATE } from "@/data/timeline";
+import { CheckCircle, Timer } from "lucide-react";
 
-function getDaysUntil(target: Date): number {
-  const now = new Date();
-  const diff = target.getTime() - now.getTime();
-  return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+function getDaysBetween(start: Date, end: Date): number {
+  const diff = end.getTime() - start.getTime();
+  return Math.ceil(diff / (1000 * 60 * 60 * 24));
 }
 
 export function CurrentStatus() {
-  const [daysLeft, setDaysLeft] = useState<number | null>(null);
+  const [totalDays, setTotalDays] = useState<number | null>(null);
 
   useEffect(() => {
-    setDaysLeft(getDaysUntil(DEADLINE_DATE));
+    setTotalDays(getDaysBetween(COMPLAINT_START_DATE, RESOLVED_DATE));
   }, []);
-
-  const deadlinePassed = daysLeft !== null && daysLeft <= 0;
 
   return (
     <section className="bg-zinc-950 px-4 py-16 sm:py-24">
@@ -26,62 +23,46 @@ export function CurrentStatus() {
           Aktuální stav
         </h2>
 
-        {/* Deadline counter */}
-        <div className="mb-8 rounded-2xl border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-red-500/10 p-6 text-center sm:p-8">
-          <Timer className="mx-auto mb-3 h-8 w-8 text-orange-400" />
-          {deadlinePassed ? (
-            <>
-              <div className="text-lg font-semibold text-red-400">
-                Deadline vypršel
-              </div>
-              <div className="mt-1 text-sm text-zinc-400">
-                Firma hrozila zneplatněním reklamace k 19. 4. 2026.
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="text-sm font-medium text-orange-400">
-                Do deadline firmy zbývá
-              </div>
-              <div className="my-2 text-5xl font-black text-white sm:text-6xl">
-                {daysLeft ?? "—"}
-              </div>
-              <div className="text-sm text-zinc-400">
-                dní (do 19. 4. 2026)
-              </div>
-            </>
-          )}
+        {/* Total duration */}
+        <div className="mb-8 rounded-2xl border border-green-500/30 bg-gradient-to-r from-green-500/10 to-emerald-500/10 p-6 text-center sm:p-8">
+          <Timer className="mx-auto mb-3 h-8 w-8 text-green-400" />
+          <div className="text-sm font-medium text-green-400">
+            Celková doba řešení reklamace
+          </div>
+          <div className="my-2 text-5xl font-black text-white sm:text-6xl">
+            {totalDays ?? "—"}
+          </div>
+          <div className="text-sm text-zinc-400">
+            dní (30. 12. 2025 → 15. 4. 2026)
+          </div>
         </div>
 
         {/* Status */}
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 sm:p-8">
+        <div className="rounded-2xl border border-green-500/20 bg-zinc-900 p-6 sm:p-8">
           <div className="mb-4 flex items-center gap-2">
-            <AlertCircle className="h-5 w-5 text-red-400" />
-            <span className="font-semibold text-red-400">Nevyřešeno</span>
+            <CheckCircle className="h-5 w-5 text-green-400" />
+            <span className="font-semibold text-green-400">Domluveno</span>
           </div>
           <ul className="space-y-3 text-sm text-zinc-400">
             <li className="flex items-start gap-2">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-500" />
-              Polštáře nedodány
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green-500" />
+              Díly budou dovezeny 23. 4. 2026
             </li>
             <li className="flex items-start gap-2">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-500" />
-              Firma požaduje, abych si reklamaci vyzvedl na vlastní náklady na
-              skladu v Čestlicích
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green-500" />
+              Deadline 19. 4. 2026 už neplatí
             </li>
             <li className="flex items-start gap-2">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500" />
-              Firma hrozí zneplatněním reklamace pokud si nedíly nevyzvednu do
-              19. 4. 2026
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green-500" />
+              Děkuji za vstřícné vyřešení
             </li>
           </ul>
         </div>
 
-        {/* Sarcastic conclusion */}
+        {/* Conclusion */}
         <div className="mt-8 text-center">
           <p className="text-lg italic text-zinc-500">
-            &ldquo;Vaše spokojenost je pro nás v XXXLutz velmi
-            důležitá.&rdquo;
+            107 dní, desítky emailů a telefonátů. Ale nakonec dohoda.
           </p>
         </div>
       </div>

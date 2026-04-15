@@ -1,4 +1,4 @@
-export type EventType = "action" | "problem" | "waiting";
+export type EventType = "action" | "problem" | "waiting" | "resolution";
 
 export interface TimelineEvent {
   date: string;
@@ -122,7 +122,20 @@ export const timelineEvents: TimelineEvent[] = [
     desc: "Volám na customer service, že navrhované řešení není přijatelné. Chtěl bych doručení, ne jezdit po skladech. Od té doby opět ticho.",
     type: "problem",
   },
+  {
+    date: "15. 4. 2026",
+    title: "Emailová dohoda",
+    desc: "Po výměně 2 emailů se konečně domluvíme — díly dovezou 23. 4. 2026. Konečně vstřícný přístup.",
+    type: "action",
+  },
+  {
+    date: "15. 4. 2026",
+    title: "Poděkování",
+    desc: "Děkuji za finální dohodu a ochotu díly doručit. Po 107 dnech se věc konečně řeší lidsky.",
+    type: "resolution",
+  },
 ];
 
 export const COMPLAINT_START_DATE = new Date(2025, 11, 30); // 30.12.2025
 export const DEADLINE_DATE = new Date(2026, 3, 19); // 19.4.2026
+export const RESOLVED_DATE = new Date(2026, 3, 15); // 15.4.2026

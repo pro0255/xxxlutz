@@ -3,6 +3,7 @@ import {
   CheckCircle,
   AlertTriangle,
   Clock,
+  Heart,
   Quote,
 } from "lucide-react";
 
@@ -30,6 +31,13 @@ const typeConfig: Record<
     border: "border-amber-500/20",
     icon: Clock,
     dotBg: "bg-amber-500",
+  },
+  resolution: {
+    color: "text-green-400",
+    bg: "bg-green-500/10",
+    border: "border-green-500/20",
+    icon: Heart,
+    dotBg: "bg-green-500",
   },
 };
 
