@@ -155,11 +155,11 @@ export function CurrentStatus() {
           </div>
         </div>
 
-        {/* Conclusion */}
+        {/* Sarcastic conclusion */}
         <div className="mt-10 text-center">
-          <p className="text-base italic text-zinc-500">
-            {totalDays ?? 107} dní, desítky emailů a telefonátů. Ale nakonec
-            dohoda.
+          <p className="text-lg italic text-zinc-500">
+            &ldquo;Vaše spokojenost je pro nás v XXXLutz velmi
+            důležitá.&rdquo;
           </p>
         </div>
       </div>
