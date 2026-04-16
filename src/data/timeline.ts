@@ -130,6 +130,12 @@ export const timelineEvents: TimelineEvent[] = [
   },
   {
     date: "15. 4. 2026",
+    title: "Telefonát od CEO XXXLutz",
+    desc: "CEO XXXLutz osobně zavolal a omluvil se za celý průběh reklamace. Takhle má vypadat šéf firmy — respekt!",
+    type: "resolution",
+  },
+  {
+    date: "15. 4. 2026",
     title: "Poděkování",
     desc: "Děkuji za finální dohodu a ochotu díly doručit. Po 107 dnech se věc konečně řeší lidsky.",
     type: "resolution",
