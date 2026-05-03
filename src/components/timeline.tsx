@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { timelineEvents, type EventType } from "@/data/timeline";
 import {
   CheckCircle,
@@ -100,6 +101,20 @@ export function Timeline() {
                         <Quote className="mt-0.5 h-3 w-3 shrink-0 text-zinc-600" />
                         <p className="text-xs italic text-zinc-500">
                           {event.quote}
+                        </p>
+                      </div>
+                    )}
+                    {event.image && (
+                      <div className="mt-3 overflow-hidden rounded-lg border border-zinc-800">
+                        <Image
+                          src={event.image}
+                          alt={event.title}
+                          width={600}
+                          height={400}
+                          className="h-auto w-full object-cover"
+                        />
+                        <p className="bg-black/40 px-3 py-2 text-xs italic text-zinc-500">
+                          Děkuji za všechno — sedím spokojeně na pohovce a jsem šťastný.
                         </p>
                       </div>
                     )}

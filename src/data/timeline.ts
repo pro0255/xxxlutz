@@ -6,6 +6,7 @@ export interface TimelineEvent {
   desc: string;
   type: EventType;
   quote?: string;
+  image?: string;
 }
 
 export const timelineEvents: TimelineEvent[] = [
@@ -139,6 +140,13 @@ export const timelineEvents: TimelineEvent[] = [
     title: "Poděkování",
     desc: "Děkuji za finální dohodu a ochotu díly doručit. Po 107 dnech se věc konečně řeší lidsky.",
     type: "resolution",
+  },
+  {
+    date: "23. 4. 2026",
+    title: "Happy end — Vojta usazen",
+    desc: "Polštáře doma, zadek na pohovce, úsměv na tváři. Díky všem — happy Vojta hlásí konec.",
+    type: "resolution",
+    image: "/happy-vojta.png",
   },
 ];
 
