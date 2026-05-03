@@ -1,12 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { COMPLAINT_START_DATE } from "@/data/timeline";
-import { Clock, Sofa } from "lucide-react";
+import { COMPLAINT_START_DATE, COMPLAINT_END_DATE } from "@/data/timeline";
+import { CheckCircle2, Sofa } from "lucide-react";
 
-function getDaysSince(start: Date): number {
-  const now = new Date();
-  const diff = now.getTime() - start.getTime();
+function getDaysBetween(start: Date, end: Date): number {
+  const diff = end.getTime() - start.getTime();
   return Math.floor(diff / (1000 * 60 * 60 * 24));
 }
 
@@ -16,8 +15,7 @@ export function Hero() {
 
   useEffect(() => {
     setMounted(true);
-    const target = getDaysSince(COMPLAINT_START_DATE);
-    // Animate counter
+    const target = getDaysBetween(COMPLAINT_START_DATE, COMPLAINT_END_DATE);
     let current = 0;
     const step = Math.max(1, Math.floor(target / 60));
     const interval = setInterval(() => {
@@ -33,7 +31,7 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-zinc-950 to-zinc-900 px-4 py-20 text-center sm:py-32">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.08),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.08),transparent_70%)]" />
       <div className="relative mx-auto max-w-3xl">
         <div className="mb-6 flex items-center justify-center gap-2 text-zinc-500">
           <Sofa className="h-5 w-5" />
@@ -51,19 +49,22 @@ export function Hero() {
           >
             XXXLutz
           </a>{" "}
-          řeší reklamace
+          (na)konec vyřešil reklamaci
         </h1>
         <p className="mx-auto mb-10 max-w-xl text-lg text-zinc-400">
-          Koupil jsem pohovku. Přišla bez polštářů.
+          Koupil jsem pohovku. Přišla bez polštářů. Po pár měsících dorazily.
         </p>
-        <div className="inline-flex items-center gap-3 rounded-2xl border border-red-500/20 bg-red-500/10 px-8 py-5">
-          <Clock className="h-6 w-6 text-red-400" />
+        <div className="inline-flex items-center gap-3 rounded-2xl border border-green-500/20 bg-green-500/10 px-8 py-5">
+          <CheckCircle2 className="h-6 w-6 text-green-400" />
           <div className="text-left">
-            <div className="text-sm font-medium text-red-400">
-              Dní od nahlášení reklamace
+            <div className="text-sm font-medium text-green-400">
+              Dní trvalo vyřízení reklamace
             </div>
             <div className="text-5xl font-black tabular-nums text-white sm:text-6xl">
               {mounted ? days : "—"}
+            </div>
+            <div className="mt-1 text-xs text-zinc-500">
+              30. 12. 2025 → 23. 4. 2026 · vyřešeno
             </div>
           </div>
         </div>

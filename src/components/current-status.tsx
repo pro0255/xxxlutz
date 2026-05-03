@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import {
   COMPLAINT_START_DATE,
+  COMPLAINT_END_DATE,
   DEADLINE_DATE,
-  RESOLVED_DATE,
 } from "@/data/timeline";
 import { AlertCircle, ArrowRight, CheckCircle, Timer } from "lucide-react";
 
@@ -24,7 +24,7 @@ export function CurrentStatus() {
   const [daysLeft, setDaysLeft] = useState<number | null>(null);
 
   useEffect(() => {
-    setTotalDays(getDaysBetween(COMPLAINT_START_DATE, RESOLVED_DATE));
+    setTotalDays(getDaysBetween(COMPLAINT_START_DATE, COMPLAINT_END_DATE));
     setDaysLeft(getDaysUntil(DEADLINE_DATE));
   }, []);
 
@@ -126,7 +126,7 @@ export function CurrentStatus() {
                   {totalDays ?? "—"}
                 </div>
                 <div className="text-[11px] text-zinc-400">
-                  dní (30. 12. 2025 → 15. 4. 2026)
+                  dní (30. 12. 2025 → 23. 4. 2026)
                 </div>
               </div>
 
@@ -140,11 +140,11 @@ export function CurrentStatus() {
               <ul className="space-y-2 text-[11px] text-zinc-400">
                 <li className="flex items-start gap-2">
                   <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-green-500" />
-                  Díly budou dovezeny 23. 4. 2026
+                  Polštáře doručeny 23. 4. 2026
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-green-500" />
-                  Deadline 19. 4. už neplatí
+                  Pohovka kompletní, Vojta sedí
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-green-500" />

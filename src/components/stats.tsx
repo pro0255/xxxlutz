@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { COMPLAINT_START_DATE } from "@/data/timeline";
+import { COMPLAINT_START_DATE, COMPLAINT_END_DATE } from "@/data/timeline";
 import {
   Mail,
   Phone,
@@ -9,9 +9,8 @@ import {
   CalendarClock,
 } from "lucide-react";
 
-function getDaysSince(start: Date): number {
-  const now = new Date();
-  const diff = now.getTime() - start.getTime();
+function getDaysBetween(start: Date, end: Date): number {
+  const diff = end.getTime() - start.getTime();
   return Math.floor(diff / (1000 * 60 * 60 * 24));
 }
 
@@ -44,7 +43,7 @@ const stats = [
   {
     icon: CalendarClock,
     value: "DAYS",
-    label: "Dní čekání",
+    label: "Dní čekání celkem",
     color: "text-orange-400",
     bg: "bg-orange-500/10",
     border: "border-orange-500/20",
@@ -55,7 +54,7 @@ export function Stats() {
   const [days, setDays] = useState("—");
 
   useEffect(() => {
-    setDays(String(getDaysSince(COMPLAINT_START_DATE)));
+    setDays(String(getDaysBetween(COMPLAINT_START_DATE, COMPLAINT_END_DATE)));
   }, []);
 
   return (

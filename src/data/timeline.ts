@@ -152,4 +152,5 @@ export const timelineEvents: TimelineEvent[] = [
 
 export const COMPLAINT_START_DATE = new Date(2025, 11, 30); // 30.12.2025
 export const DEADLINE_DATE = new Date(2026, 3, 19); // 19.4.2026
-export const RESOLVED_DATE = new Date(2026, 3, 15); // 15.4.2026
+export const RESOLVED_DATE = new Date(2026, 3, 15); // 15.4.2026 (email dohoda)
+export const COMPLAINT_END_DATE = new Date(2026, 3, 23); // 23.4.2026 (skutečné doručení)
